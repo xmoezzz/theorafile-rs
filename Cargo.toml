@@ -1,0 +1,19 @@
+[package]
+name = "theorafile-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Low-level bindings for theorafile."
+authors = ["xmoe <xmoe.project@gmail.com>"]
+keywords = ["multimedia", "encoding", "video"]
+categories = ["api-bindings", "multimedia::video"]
+repository = "https://github.com/xmoezzz/theorafile-rs"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+
+[build-dependencies]
+cc = { version = "1.0", features = ["parallel"] }
+walkdir = "2.3"
