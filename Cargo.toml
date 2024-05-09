@@ -1,6 +1,6 @@
 [package]
 name = "theorafile-rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Low-level bindings for theorafile."
 authors = ["xmoe <xmoe.project@gmail.com>"]
