@@ -15,7 +15,17 @@ fn main() {
     let mut cc_build = cc::Build::new();
     let mut cfiles = vec![];
     cfiles.extend(glob_import("upstream/lib/ogg", ".c"));
+    #[cfg(not(target_os = "windows"))]
     cfiles.extend(glob_import("upstream/lib/theora", ".c"));
+    //#[cfg(target_os = "windows")]
+    {
+        let ccs = glob_import("upstream/lib/theora", ".c");
+        // delete all 'x86\\'
+        let ccs = ccs.into_iter().filter(|x| !x.contains("x86\\"));
+        cfiles.extend(ccs);
+        let ccs = glob_import("upstream/lib/theora/x86_vc", ".c");
+        cfiles.extend(ccs);
+    }
     cfiles.extend(glob_import("upstream/lib/vorbis", ".c"));
     cfiles.push("upstream/theorafile.c".to_string());
     
